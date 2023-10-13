@@ -5,9 +5,6 @@ import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from '@microservice-vehicle/module-database/database.module';
 import { LoggerModule } from '@microservice-vehicle/module-log/logs.module';
 import { AuthModule } from '@microservice-vehicle/module-auth/auth.module';
-import { VehicleModule } from '@microservice-vehicle/module-vehicle/vehicle.module';
-import { VehicleTypeModule } from '@microservice-vehicle/module-vehicle-type/vehicleType.module';
-import { AutomakerModule } from '@microservice-vehicle/module-automaker/automaker.module';
 
 import { LoggerMiddleware } from '@microservice-vehicle/config-middlewares';
 import { TransformInterceptor } from '@microservice-vehicle/config-interceptors';
@@ -15,6 +12,7 @@ import { AllExceptionsFilter } from '@microservice-vehicle/config-exceptions';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { RentalModule } from './rental/rental.module';
 @Module({
   controllers: [AppController],
   providers: [
@@ -33,9 +31,7 @@ import { AppService } from './app.service';
     ConfigModule,
     DatabaseModule,
     AuthModule,
-    VehicleModule,
-    VehicleTypeModule,
-    AutomakerModule,
+    RentalModule,
   ],
 })
 export class AppModule {
